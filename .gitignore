@@ -1,0 +1,27 @@
+# Ignore .vscode directory
+.vscode/
+
+# Ignore virtual environments
+venv/
+env/
+
+# Ignore compiled Python files
+*.pyc
+__pycache__/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore specific files
+cpp.cpp
+Python Code.pdf
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE specific files (e.g., PyCharm)
+.idea/
+
+# Ignore a specific folder
+Virtual Enviroment/
