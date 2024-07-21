@@ -1,3 +1,20 @@
+"""
+1. {}
+2. unique elements
+3. set supports mathematical operations like union, intersection, difference.
+4. sets can be both mutable and immutable
+mutable_set = {1,2,3}
+immutable_set = frozenset([1,2,3]) - append and remove won't work here.
+5. sets can be beneficiary for removing duplicates from a list
+ l1 = [1,2,3,4,5,5]
+ uniques_set = list(set(l1))
+ print(unique_set)
+ l1->set->list
+ unique_set = set(l1)
+ print(unique_set)
+"""
+
+
 # sq bracket - lists
 # () - tuples
 # {} - sets
@@ -19,3 +36,19 @@ print(s1)
 #  intersection_update - existing set would get updated
 
 # The symmetric_difference() and symmetric_difference_update() methods prints only items that are not similar to both the sets. The symmetric_difference() method returns a new set whereas symmetric_difference_update() method updates into the existing set from another set
+
+
+
+"""
+# list 
+1. when we want to sort collections
+2. maintain the order
+3. dynamic sizing append, remove
+4. store heterogenous data type [1,'a',2.3] 
+"""
+"""
+# Tuples
+1. small brackets 
+2. immutable, coordinates, rbg value.
+3. data remains consistent throughout the program because they are immutable
+"""

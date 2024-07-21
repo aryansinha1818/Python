@@ -14,6 +14,7 @@ print(l3)
 def filter_function(a):
     return a>4
 
+print("List answer")
 l4 = list(filter(filter_function,l3))
 print(l4)
 
