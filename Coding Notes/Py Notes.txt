@@ -1,0 +1,786 @@
+~~~~~~~~~~ Lec 03 Modules and Pip ~~~~~~~~~~~~~~
+Day 3 - Modules and pip in Python!
+Module is like a code library which can be used to borrow code written by somebody else in our python program. There are two types of modules in python:
+
+Built in Modules - These modules are ready to import and use and ships with the python interpreter. there is no need to install such modules explicitly.
+External Modules - These modules are imported from a third party file or can be installed using a package manager like pip or conda. Since this code is written by someone else, we can install different versions of a same module with time.
+The pip command
+It can be used as a package manager pip to install a python module. Lets install a module called pandas using the following command
+
+pip install pandas
+Using a module in Python (Usage)
+We use the import syntax to import a module in Python. Here is an example code:
+
+import pandas
+# Read and work with a file named 'words.csv'
+df = pandas.read_csv('words.csv')
+print(df) # This will display first few rows from the words.csv file
+Similarly we can install other modules and look into their documentations for usage instructions.
+We will find ourselved doing this often in the later part of this course
+
+~~~~~~~~~~~~~~ Lecture 05 ~~~~~~~~~~~~~~~~~~
+
+Multi-line string
+
+Multi-Line Comments:
+To write multi-line comments you can use ‘#’ at each line or you can use the multiline string.
+
+Example 1: The use of ‘#’.
+
+#It will execute a block of code if a specified condition is true.
+#If the condition is false then it will execute another block of code.
+p = 7
+if (p > 5):
+    print("p is greater than 5.")
+else:
+    print("p is not greater than 5.")
+Output:
+
+p is greater than 5.
+Example 2: The use of multiline string.
+
+"""This is an if-else statement.
+It will execute a block of code if a specified condition is true.
+If the condition is false then it will execute another block of code."""
+p = 7
+if (p > 5):
+    print("p is greater than 5.")
+else:
+    print("p is not greater than 5.")
+
+
+
+1. 2 types of modules, build-in modules and external modules.
+2. Explicit conversion - Happen on its own
+3. Implicit - the software or the app does that on its own.
+4. Anything between ''' is a string. Even the multiple line is possible.
+5. Len - print(a[-1,-2]) = len of a - 1.
+6. Strings are immutable.
+7. In python, indentation is there, instead of {}, unlike in c.
+8. else if --- elif
+
+**
+In Python, the statement import time means that you are importing the time module into your current Python script or interactive session. The time module provides various time-related functions that you can use to manipulate and operate on time values.
+
+*Order is maintained in lists.
+To print a list, print(marks[1:2]) - will start from 1, pick it and then exclude 2.
+Jump index marks[1:2:2] - first it will take from 1 to 2 excluding 2. then it will skip 2 and take. Every seconf element will be printed.
+
+****marks[1:-2] it means, 1:len-2.
+*Range of Index:
+You can print a range of list items by specifying where you want to start, where do you want to end and if you want to skip elements in between the range. Syntax:
+listName[start : end : jumpIndex]
+
+**animals = ["cat", "dog", "bat", "mouse", "pig", "horse", "donkey", "goat", "cow"]
+print(animals[::2])	
+Pick every second element.
+
+Tuple - (1,) otherwise the class will get confuse.
+
+
+*********Concepts totally new in python
+` mutability. l.copy() in tuple. We can't change directly.
+`f-strings, before that there was  a tedious way. Python 3.6
+`doc string lec 29, add.__doc__. Write below the function body, name.
+`Python Comments
+Comments are descriptions that help programmers better understand the intent and functionality of the program. They are completely ignored by the Python interpreter.
+
+Python docstrings
+As mentioned above, Python docstrings are strings used right after the definition of a function, method, class, or module (like in Example 1). They are used to document our code.
+
+We can access these docstrings using the doc attribute.
+
+Python doc attribute
+Whenever string literals are present just after the definition of a function, module, class or method, they are associated with the object as their doc attribute. We can later use this attribute to retrieve this docstring.
+
+*****PEP 8 - Python enhancement proposal. 
+PEP 8
+PEP 8 is a document that provides guidelines and best practices on how to write Python code. It was written in 2001 by Guido van Rossum, Barry Warsaw, and Nick Coghlan. The primary focus of PEP 8 is to improve the readability and consistency of Python code.
+
+PEP stands for Python Enhancement Proposal, and there are several of them. A PEP is a document that describes new features proposed for Python and documents aspects of Python, like design and style, for the community.
+
+Set no order maintained. 
+empty set = name = set()
+not name = set{}, dictionary.
+
+**********Raise
+Raising Custom errors
+In python, we can raise custom errors by using the raise keyword.
+
+salary = int(input("Enter salary amount: "))
+if not 2000 < salary < 5000:
+    raise ValueError("Not a valid salary")
+
+In the previous tutorial, we learned about different built-in exceptions in Python and why it is important to handle exceptions. However, sometimes we may need to create our own custom exceptions that serve our purpose.
+
+
+obvious error = linter. editor.
+
+*********enumerator
+marks = [1,11,111,23,4,32,1,112]
+index = 0
+for index,mark in enumerate(marks, start = 1):
+  print(mark)
+  if(index==3):
+    print("Good")
+
+|~~~~~~~~~~~~~~~ Virtual Enviroment ~~~~~~~~~~~~~~|
+Create a new folder and then in that, we have the thing,
+python -m venv aryan - a copy of what we have in the computer, a version of that.
+Now inside that we can have multiple versions, one of a type and other of another type
+
+
+~ pip3 install pandas - globally install pandas, but in the comp it is already installed so we do the below
+Activate the virtual environment (Windows)
+aryan\Scripts\activate.bat
+and now when we do pip3 install pandas, then it will be created inside the folder
+
+~ to install a particular version
+pip3 install pandas===1.0.4
+07:00 to have the pandas
+
+~To deactivate the virtual environment, you can use the deactivate command:
+
+# Deactivate the virtual environment
+deactivate
+
+~ we can also do pip install "name"
+
+The "requirements.txt" file
+In addition to creating and activating a virtual environment, it can be useful to create a requirements.txt file that lists the packages and their versions that your project depends on. This file can be used to easily install all the required packages in a new environment.
+
+To create a requirements.txt file, you can use the pip freeze command, which outputs a list of installed packages and their versions. For example:
+
+# Output the list of installed packages and their versions to a file
+pip freeze > requirements.txt
+
+To install the packages listed in the requirements.txt file, you can use the pip install command with the -r flag:
+
+# Install the packages listed in the requirements.txt file
+pip install -r requirements.txt
+
+Using a virtual environment and a requirements.txt file can help you manage the dependencies for your Python projects and ensure that your projects are portable and can be easily set up on a new machine.
+
+|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+
+Import 
+
+~ How importing in python works
+Importing in Python is the process of loading code from a Python module into the current script. This allows you to use the functions and variables defined in the module in your current script, as well as any additional modules that the imported module may depend on.
+
+To import a module in Python, you use the import statement followed by the name of the module. For example, to import the math module, which contains a variety of mathematical functions, you would use the following statement:
+
+import math
+
+Once a module is imported, you can use any of the functions and variables defined in the module by using the dot notation. For example, to use the sqrt function from the math module, you would write:
+
+import math
+result = math.sqrt(9)
+print(result)  # Output: 3.0
+
+from keyword
+You can also import specific functions or variables from a module using the from keyword. For example, to import only the sqrt function from the math module, you would write:
+
+from math import sqrt
+result = sqrt(9)
+print(result)  # Output: 3.0
+
+You can also import multiple functions or variables at once by separating them with a comma:
+
+from math import sqrt, pi
+result = sqrt(9)
+print(result)  # Output: 3.0
+print(pi)  # Output: 3.141592653589793
+
+importing everything
+It's also possible to import all functions and variables from a module using the * wildcard. However, this is generally not recommended as it can lead to confusion and make it harder to understand where specific functions and variables are coming from.
+
+from math import *
+result = sqrt(9)
+print(result)  # Output: 3.0
+print(pi)  # Output: 3.141592653589793
+
+Python also allows you to rename imported modules using the as keyword. This can be useful if you want to use a shorter or more descriptive name for a module, or if you want to avoid naming conflicts with other modules or variables in your code.
+
+The "as" keyword
+import math as m
+result = m.sqrt(9)
+print(result)  # Output: 3.0
+print(m.pi)  # Output: 3.141592653589793
+
+The dir function
+Finally, Python has a built-in function called dir that you can use to view the names of all the functions and variables defined in a module. This can be helpful for exploring and understanding the contents of a new module.
+
+import math
+print(dir(math))
+
+This will output a list of all the names defined in the math module, including functions like sqrt and pi, as well as other variables and constants.
+
+In summary, the import statement in Python allows you to access the functions and variables defined in a module from within your current script. You can import the entire module, specific functions or variables, or use the * wildcard to import everything. You can also use the as keyword to rename a module, and the dir function to view the contents of a module.
+
+~~~~~~~~~~~~~~~~~~~~~ __name__ == "__main__" ~~~~~~~~~~~~~~~~~~~~~~
+if "__name__ == "__main__" in Python
+The if __name__ == "__main__" idiom is a common pattern used in Python scripts to determine whether the script is being run directly or being imported as a module into another script.
+
+In Python, the __name__ variable is a built-in variable that is automatically set to the name of the current module. When a Python script is run directly, the __name__ variable is set to the string __main__ When the script is imported as a module into another script, the __name__ variable is set to the name of the module.
+
+Here's an example of how the if __name__ == __main__ idiom can be used:
+
+def main():
+    # Code to be run when the script is run directly
+    print("Running script directly")
+if __name__ == "__main__":
+    main()
+
+
+In this example, the main function contains the code that should be run when the script is run directly. The if statement at the bottom checks whether the __name__ variable is equal to __main__. If it is, the main function is called.
+
+Why is it useful?
+This idiom is useful because it allows you to reuse code from a script by importing it as a module into another script, without running the code in the original script. For example, consider the following script:
+
+def main():
+    print("Running script directly")
+if __name__ == "__main__":
+    main()
+
+
+If you run this script directly, it will output "Running script directly". However, if you import it as a module into another script and call the main function from the imported module, it will not output anything:
+
+import script
+script.main()  # Output: "Running script directly"
+
+
+This can be useful if you have code that you want to reuse in multiple scripts, but you only want it to run when the script is run directly and not when it's imported as a module.
+
+Is it a necessity?
+It's important to note that the if __name__ == "__main__" idiom is not required to run a Python script. You can still run a script without it by simply calling the functions or running the code you want to execute directly. However, the if __name__ == "__main__" idiom can be a useful tool for organizing and separating code that should be run directly from code that should be imported and used as a module.
+
+In summary, the if __name__ == "__main__" idiom is a common pattern used in Python scripts to determine whether the script is being run directly or being imported as a module into another script. It allows you to reuse code from a script by importing it as a module into another script, without running the code in the original script.
+
+~~~~~~~~~~~~~~~~~~~~ Module 46 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+OS Module
+The os module in Python is a built-in library that provides functions for interacting with the operating system. It allows you to perform a wide variety of tasks, such as reading and writing files, interacting with the file system, and running system commands.
+
+Here are some common tasks you can perform with the os module:
+
+Reading and writing files The os module provides functions for opening, reading, and writing files. For example, to open a file for reading, you can use the open function:
+
+import os
+# Open the file in read-only mode
+f = os.open("myfile.txt", os.O_RDONLY)
+# Read the contents of the file
+contents = os.read(f, 1024)
+# Close the file
+os.close(f)
+
+
+To open a file for writing, you can use the os.O_WRONLY flag:
+
+import os
+# Open the file in write-only mode
+f = os.open("myfile.txt", os.O_WRONLY)
+# Write to the file
+os.write(f, b"Hello, world!")
+# Close the file
+os.close(f)
+
+
+Interacting with the file system
+The os module also provides functions for interacting with the file system. For example, you can use the os.listdir function to get a list of the files in a directory:
+
+import os
+# Get a list of the files in the current directory
+files = os.listdir(".")
+print(files)  # Output: ['myfile.txt', 'otherfile.txt']
+
+
+You can also use the os.mkdir function to create a new directory:
+
+import os
+# Create a new directory
+os.mkdir("newdir")
+
+
+Running system commands
+Finally, the os module provides functions for running system commands. For example, you can use the os.system function to run a command and get the output:
+
+import os
+# Run the "ls" command and print the output
+output = os.system("ls")
+print(output)  # Output: ['myfile.txt', 'otherfile.txt']
+
+
+You can also use the os.popen function to run a command and get the output as a file-like object:
+
+import os
+# Run the "ls" command and get the output as a file-like object
+f = os.popen("ls")
+# Read the contents of the output
+output = f.read()
+print(output)  # Output: ['myfile.txt', 'otherfile.txt']
+# Close the file-like object
+f.close()
+
+
+In summary, the os module in Python is a built-in library that provides a wide variety of functions for interacting with the operating system. It allows you to perform tasks such as reading and writing files, interacting with the file system, and running system commands.
+
+
+********** Pass
+We use pass when we want the code to be declared later on in the future.
+
+~~~~~~~~~~~~~~Lec 47~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* global x
+
+******** I/O
+f = open('',r/w/append)
+b = binary file
+
+There are various modes in which we can open files.
+
+read (r): This mode opens the file for reading only and gives an error if the file does not exist. This is the default mode if no mode is passed as a parameter.
+
+write (w): This mode opens the file for writing only and creates a new file if the file does not exist.
+
+append (a): This mode opens the file for appending only and creates a new file if the file does not exist.
+
+create (x): This mode creates a file and gives an error if the file already exists.
+
+text (t): Apart from these modes we also need to specify how the file must be handled. t mode is used to handle text files. t refers to the text mode. There is no difference between r and rt or w and wt since text mode is the default. The default mode is 'r' (open for reading text, synonym of 'rt' ).
+
+binary (b): used to handle binary files (images, pdfs, etc).
+
+Reading from a File
+Once we have a file object, we can use various methods to read from the file.
+
+The read() method reads the entire contents of the file and returns it as a string.
+
+f = open('myfile.txt', 'r')
+contents = f.read()
+print(contents)
+
+
+Writing to a File
+To write to a file, we first need to open it in write mode.
+
+f = open('myfile.txt', 'w')
+
+
+We can then use the write() method to write to the file.
+
+f = open('myfile.txt', 'w')
+f.write('Hello, world!')
+
+
+Keep in mind that writing to a file will overwrite its contents. If you want to append to a file instead of overwriting it, you can open it in append mode.
+
+f = open('myfile.txt', 'a')
+f.write('Hello, world!')
+
+
+Closing a File
+It is important to close a file after you are done with it. This releases the resources used by the file and allows other programs to access it.
+
+To close a file, you can use the close() method.
+
+f = open('myfile.txt', 'r')
+# ... do something with the file
+f.close()
+
+
+The 'with' statement
+Alternatively, you can use the with statement to automatically close the file after you are done with it.
+
+with open('myfile.txt', 'r') as f:
+    # ... do something with the file
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~read``````````````````````````````
+
+readlines() method
+The readline() method reads a single line from the file. If we want to read multiple lines, we can use a loop.
+
+f = open('myfile.txt', 'r')
+while True:
+    line = f.readline()
+    if not line:
+        break
+    print(line)
+
+The readlines() method reads all the lines of the file and returns them as a list of strings.
+
+writelines() method
+The writelines() method in Python writes a sequence of strings to a file. The sequence can be any iterable object, such as a list or a tuple.
+
+Here's an example of how to use the writelines() method:
+
+f = open('myfile.txt', 'w')
+lines = ['line 1\n', 'line 2\n', 'line 3\n']
+f.writelines(lines)
+f.close()
+
+This will write the strings in the lines list to the file myfile.txt. The \n characters are used to add newline characters to the end of each string.
+
+Keep in mind that the writelines() method does not add newline characters between the strings in the sequence. If you want to add newlines between the strings, you can use a loop to write each string separately:
+
+f = open('myfile.txt', 'w')
+lines = ['line 1', 'line 2', 'line 3']
+for line in lines:
+    f.write(line + '\n')
+f.close()
+
+It is also a good practice to close the file after you are done with it.
+
+
+
+~~~~~~~~~Seek 51``````````````````````````````````````````````````````
+
+seek() and tell() functions
+In Python, the seek() and tell() functions are used to work with file objects and their positions within a file. These functions are part of the built-in io module, which provides a consistent interface for reading and writing to various file-like objects, such as files, pipes, and in-memory buffers.
+
+seek() function
+The seek() function allows you to move the current position within a file to a specific point. The position is specified in bytes, and you can move either forward or backward from the current position. For example:
+
+with open('file.txt', 'r') as f:
+  # Move to the 10th byte in the file
+  f.seek(10)
+  # Read the next 5 bytes
+  data = f.read(5)
+
+
+tell() function
+The tell() function returns the current position within the file, in bytes. This can be useful for keeping track of your location within the file or for seeking to a specific position relative to the current position. For example:
+
+with open('file.txt', 'r') as f:
+  # Read the first 10 bytes
+  data = f.read(10)
+  # Save the current position
+  current_position = f.tell()
+  # Seek to the saved position
+  f.seek(current_position)
+
+
+truncate() function
+When you open a file in Python using the open function, you can specify the mode in which you want to open the file. If you specify the mode as 'w' or 'a', the file is opened in write mode and you can write to the file. However, if you want to truncate the file to a specific size, you can use the truncate function.
+
+Here is an example of how to use the truncate function:
+
+with open('sample.txt', 'w') as f:
+  f.write('Hello World!')
+  f.truncate(5)
+with open('sample.txt', 'r') as f:
+  print(f.read())
+
+*************Map, filter, reduce```````````````````````````````````````
+
+Map, Filter and Reduce
+In Python, the map, filter, and reduce functions are built-in functions that allow you to apply a function to a sequence of elements and return a new sequence. These functions are known as higher-order functions, as they take other functions as arguments.
+
+map
+The map function applies a function to each element in a sequence and returns a new sequence containing the transformed elements. The map function has the following syntax:
+
+map(function, iterable)
+
+
+The function argument is a function that is applied to each element in the iterable argument. The iterable argument can be a list, tuple, or any other iterable object.
+
+Here is an example of how to use the map function:
+
+# List of numbers
+numbers = [1, 2, 3, 4, 5]
+# Double each number using the map function
+doubled = map(lambda x: x * 2, numbers)
+# Print the doubled numbers
+print(list(doubled))
+
+
+In the above example, the lambda function lambda x: x * 2 is used to double each element in the numbers list. The map function applies the lambda function to each element in the list and returns a new list containing the doubled numbers.
+
+filter
+The filter function filters a sequence of elements based on a given predicate (a function that returns a boolean value) and returns a new sequence containing only the elements that meet the predicate. The filter function has the following syntax:
+
+filter(predicate, iterable)
+
+
+The predicate argument is a function that returns a boolean value and is applied to each element in the iterable argument. The iterable argument can be a list, tuple, or any other iterable object.
+
+Here is an example of how to use the filter function:
+
+# List of numbers
+numbers = [1, 2, 3, 4, 5]
+# Get only the even numbers using the filter function
+evens = filter(lambda x: x % 2 == 0, numbers)
+# Print the even numbers
+print(list(evens))
+
+
+In the above example, the lambda function lambda x: x % 2 == 0 is used to filter the numbers list and return only the even numbers. The filter function applies the lambda function to each element in the list and returns a new list containing only the even numbers.
+
+reduce
+The reduce function is a higher-order function that applies a function to a sequence and returns a single value. It is a part of the functools module in Python and has the following syntax:
+
+reduce(function, iterable)
+
+
+The function argument is a function that takes in two arguments and returns a single value. The iterable argument is a sequence of elements, such as a list or tuple.
+
+The reduce function applies the function to the first two elements in the iterable and then applies the function to the result and the next element, and so on. The reduce function returns the final result.
+
+Here is an example of how to use the reduce function:
+
+from functools import reduce
+# List of numbers
+numbers = [1, 2, 3, 4, 5]
+# Calculate the sum of the numbers using the reduce function
+sum = reduce(lambda x, y: x + y, numbers)
+# Print the sum
+print(sum)
+
+
+In the above example, the reduce function applies the lambda function lambda x, y: x + y to the elements in the numbers list. The lambda function adds the two arguments x and y and returns the result. The reduce function applies the lambda function to the first two elements in the list (1 and 2), then applies the function to the result (3) and the next element (3), and so on. The final result is the sum of all the elements in the list, which is 15.
+
+It is important to note that the reduce function requires the functools module to be imported in order to use it.
+
+``````````````````````````````````````````````````````````````````````````
+**********54 'is' vs '==' 
+'is' vs '==' in Python
+In Python, is and == are both comparison operators that can be used to check if two values are equal. However, there are some important differences between the two that you should be aware of.
+
+The is operator compares the identity of two objects, while the == operator compares the values of the objects. This means that is will only return True if the objects being compared are the exact same object in memory, while == will return True if the objects have the same value.
+
+For example:
+
+a = [1, 2, 3]
+b = [1, 2, 3]
+print(a == b)  # True
+print(a is b)  # False
+
+
+In this case, a and b are two separate lists that have the same values, so == returns True. However, a and b are not the same object in memory, so is returns False.
+
+One important thing to note is that, in Python, strings and integers are immutable, which means that once they are created, their value cannot be changed. This means that, for strings and integers, is and == will always return the same result:
+
+a = "hello"
+b = "hello"
+print(a == b)  # True
+print(a is b)  # True
+a = 5
+b = 5
+print(a == b)  # True
+print(a is b)  # True
+
+
+In these cases, a and b are both pointing to the same object in memory, so is and == both return True.
+
+For mutable objects such as lists and dictionaries, is and == can behave differently. In general, you should use == when you want to compare the values of two objects, and use is when you want to check if two objects are the same object in memory.
+
+|~~~~~~~~~~~~~~ Lec 60 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+
+Getter Setter
+
+Getters in Python are methods that are used to access the values of an object's properties. They are used to return the value of a specific property, and are typically defined using the @property decorator. Here is an example of a simple class with a getter method:
+
+class MyClass:
+    def __init__(self, value):
+        self._value = value
+    @property
+    def value(self):
+        return self._value
+In this example, the MyClass class has a single property, _value, which is initialized in the init method. The value method is defined as a getter using the @property decorator, and is used to return the value of the _value property.
+
+To use the getter, we can create an instance of the MyClass class, and then access the value property as if it were an attribute:
+
+>>> obj = MyClass(10)
+>>> obj.value
+10
+Setters
+It is important to note that the getters do not take any parameters and we cannot set the value through getter method.For that we need setter method which can be added by decorating method with @property_name.setter
+
+Here is an example of a class with both getter and setter:
+
+class MyClass:
+    def __init__(self, value):
+        self._value = value
+    @property
+    def value(self):
+        return self._value
+    @value.setter
+    def value(self, new_value):
+        self._value = new_value
+We can use setter method like this:
+
+>>> obj = MyClass(10)
+>>> obj.value = 20
+>>> obj.value
+20
+In conclusion, getters are a convenient way to access the values of an object's properties, while keeping the internal representation of the property hidden. This can be useful for encapsulation and data validation.
+
+
+~~~~~~~~~~~~~~~~~~ 61 Inheritance ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# inherit the property from parent 
+# class
+
+# self - instead of that we can use any word, but the idea here is with the help of that we can access any variable present inside this class
+class A:
+    def displayA(self):
+        print("Welcome to A")
+        # a class b ke andar chali gyi hai, a classs ka saara behiour, methods b ke andar
+class B(A):
+    def displayB(self):
+        print("Welcome to B")
+class C(B):
+    def displayC(self):
+        print("Welcome to C")
+obj = C()
+obj.displayA();
+obj.displayB();
+
+
+# Multilevel inheritance
+#  a b ke andar iherit, b c mein inherit hua
+obj.displayC();
+# inherit the property from parent 
+# class
+
+# self - instead of that we can use any word, but the idea here is with the help of that we can access any variable present inside this class
+class E:
+    def displayE(self):
+        print("Welcome to E")
+        # a class b ke andar chali gyi hai, a classs ka saara behiour, methods b ke andar
+
+class F:
+    def displayF(self):
+        print("Welcome to F")
+
+class G(E,F):
+    def displayG(self):
+        print("Welcome to G")
+obj = G()
+obj.displayE();
+obj.displayF();
+
+
+# Multilevel inheritance
+#  a b ke andar iherit, b c mein inherit hua
+obj.displayG();
+
+
+~~~~~~~~~~~~~~~~~~ Harry Notes ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Inheritance in python
+When a class derives from another class. The child class will inherit all the public and protected properties and methods from the parent class. In addition, it can have its own properties and methods,this is called as inheritance.
+
+Python Inheritance Syntax
+class BaseClass:
+  Body of base class
+class DerivedClass(BaseClass):
+  Body of derived class
+Derived class inherits features from the base class where new features can be added to it. This results in re-usability of code.
+
+Types of inheritance:
+Single inheritance
+Multiple inheritance
+Multilevel inheritance
+Hierarchical Inheritance
+Hybrid Inheritance
+We will see the explaination and example of each type of inheritance in the later tutorials
+
+~~~~~~~~~~~~~~~~~~~ Lec 62 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Access Specifiers
+
+Access specifiers or access modifiers in python programming are used to limit the access of class variables and class methods outside of class while implementing the concepts of inheritance.
+
+Let us see the each one of access specifiers in detail:
+
+Types of access specifiers
+Public access modifier
+Private access modifier
+Protected access modifier
+
+~~~~~~~~~~~~~~~~~~~~~~~ Lecture 66 Instance variable and class variable !!!!!!!!!!!!!!!!
+
+Instance vs class variables
+In Python, variables can be defined at the class level or at the instance level. Understanding the difference between these types of variables is crucial for writing efficient and maintainable code.
+
+Class Variables
+Class variables are defined at the class level and are shared among all instances of the class. They are defined outside of any method and are usually used to store information that is common to all instances of the class. For example, a class variable can be used to store the number of instances of a class that have been created.
+
+class MyClass:
+    class_variable = 0
+    
+    def __init__(self):
+        MyClass.class_variable += 1
+        
+    def print_class_variable(self):
+        print(MyClass.class_variable)
+        
+obj1 = MyClass()
+obj2 = MyClass()
+obj1.print_class_variable() # Output: 2
+obj2.print_class_variable() # Output: 2
+In the example above, the class_variable is shared among all instances of the class MyClass. When we create new instances of MyClass, the value of class_variable is incremented. When we call the print_class_variable method on obj1 and obj2, we get the same value of class_variable.
+
+Instance Variables
+Instance variables are defined at the instance level and are unique to each instance of the class. They are defined inside the init method and are usually used to store information that is specific to each instance of the class. For example, an instance variable can be used to store the name of an employee in a class that represents an employee.
+
+class MyClass:
+    def __init__(self, name):
+        self.name = name
+        
+    def print_name(self):
+        print(self.name)
+obj1 = MyClass("John")
+obj2 = MyClass("Jane")
+obj1.print_name() # Output: John
+obj2.print_name() # Output: Jane
+In the example above, each instance of the class MyClass has its own value for the name variable. When we call the print_name method on obj1 and obj2, we get different values for name.
+
+Summary
+In summary, class variables are shared among all instances of a class and are used to store information that is common to all instances. Instance variables are unique to each instance of a class and are used to store information that is specific to each instance. Understanding the difference between class variables and instance variables is crucial for writing efficient and maintainable code in Python.
+
+It's also worth noting that, in python, class variables are defined outside of any methods and don't need to be explicitly declared as class variable. They are defined in the class level and can be accessed via classname.varibale_name or self.class.variable_name. But instance variables are defined inside the methods and need to be explicitly declared as instance variable by using self.variable_name.
+
+~~~~~~~~~~~ 69 Class Methods ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Python Class Methods: An Introduction
+In Python, classes are a way to define custom data types that can store data and define functions that can manipulate that data. One type of function that can be defined within a class is called a "method." In this blog post, we will explore what Python class methods are, why they are useful, and how to use them.
+
+What are Python Class Methods?
+A class method is a type of method that is bound to the class and not the instance of the class. In other words, it operates on the class as a whole, rather than on a specific instance of the class. Class methods are defined using the "@classmethod" decorator, followed by a function definition. The first argument of the function is always "cls," which represents the class itself.
+
+Why Use Python Class Methods?
+Class methods are useful in several situations. For example, you might want to create a factory method that creates instances of your class in a specific way. You could define a class method that creates the instance and returns it to the caller. Another common use case is to provide alternative constructors for your class. This can be useful if you want to create instances of your class in multiple ways, but still have a consistent interface for doing so.
+
+How to Use Python Class Methods
+To define a class method, you simply use the "@classmethod" decorator before the method definition. The first argument of the method should always be "cls," which represents the class itself. Here is an example of how to define a class method:
+
+class ExampleClass:
+    @classmethod
+    def factory_method(cls, argument1, argument2):
+        return cls(argument1, argument2)
+In this example, the "factory_method" is a class method that takes two arguments, "argument1" and "argument2." It creates a new instance of the class "ExampleClass" using the "cls" keyword, and returns the new instance to the caller.
+
+It's important to note that class methods cannot modify the class in any way. If you need to modify the class, you should use a class level variable instead.
+
+Conclusion
+Python class methods are a powerful tool for defining functions that operate on the class as a whole, rather than on a specific instance of the class. They are useful for creating factory methods, alternative constructors, and other types of methods that operate at the class level. With the knowledge of how to define and use class methods, you can start writing more complex and organized code in Python.
+
+~~~~~~~~~~~~~~~~~ 70 Class methods as alternative constructors ~~~~~~~~~~~~~~~~~
+
+1. Variable length argument
+Variable-length arguments:
+Sometimes we may need to pass more arguments than those defined in the actual function. This can be done using variable-length arguments.
+~ There are two ways to achieve this:
+Arbitrary Arguments: While creating a function, pass a * before the parameter name while defining the function. The function accesses the arguments by processing them in the form of tuple.
+
+2. # sq bracket - lists
+# () - tuples
+# {} - sets
+
+~~~~~~~~~~~~~85 Command Lie Utility~~~~~~~~~~~~~~
+Command line utilities are programs that can be run from the terminal or command line interface, and they are an essential part of many development workflows. In Python, you can create your own command line utilities using the built-in argparse module.
+
+
+
+
+
+
+

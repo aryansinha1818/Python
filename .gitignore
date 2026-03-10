@@ -25,3 +25,9 @@ Thumbs.db
 
 # Ignore a specific folder
 Virtual Enviroment/
+
+node_modules/
+.env
+*.log
+*.pdf
+dist/
