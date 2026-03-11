@@ -25,7 +25,7 @@ if "rry" in "Harry":
     print(False)
 
 print(marks)
-print(marks[:])
+print("this is ", marks[:])
 # start,end,jump
 print(marks[1:6:2])
 # end not included
